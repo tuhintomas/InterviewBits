@@ -1,0 +1,27 @@
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+
+For example,
+Given 1->1->2, return 1->2.
+Given 1->1->2->3->3, return 1->2->3.
+
+
+
+
+class Solution:
+    # @param A : head node of linked list
+    # @return the head node in the linked list
+    def deleteDuplicates(self, A):
+        if A==None:
+            return
+        if A.next==None:
+            return A
+        cur=A
+        while cur!=None:
+            if cur.next!=None:
+                if cur.val==cur.next.val:
+                    cur.next=cur.next.next
+                else:
+                    cur=cur.next
+            else:
+                cur=cur.next
+        return A
