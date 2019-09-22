@@ -1,0 +1,37 @@
+Given a binary tree, invert the binary tree and return it. 
+Look at the example for more details.
+
+Example : 
+Given binary tree
+
+     1
+   /   \
+  2     3
+ / \   / \
+4   5 6   7
+invert and return
+
+     1
+   /   \
+  3     2
+ / \   / \
+7   6 5   4
+
+
+
+
+
+
+ # @param A : root node of tree
+    # @return the root node in the tree
+    def invertTree(self, A):
+        if A==None:
+            return
+        elif A.left==None and A.right==None:
+            return A
+        else:
+            l=self.invertTree(A.right)
+            r=self.invertTree(A.left)
+            A.left=l
+            A.right=r
+            return A
