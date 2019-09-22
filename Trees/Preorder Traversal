@@ -1,0 +1,36 @@
+Given a binary tree, return the preorder traversal of its nodes’ values.
+
+Example :
+Given binary tree
+
+   1
+    \
+     2
+    /
+   3
+return [1,2,3].
+
+Using recursion is not allowed.
+
+
+
+
+(Using Recursion)
+
+
+
+class Solution:
+    # @param A : root node of tree
+    # @return a list of integers
+    def preorderTraversal(self, A):
+        if A==None:
+            return []
+        l=[]
+        self.helper(A,l)
+        return l
+    def helper(self,root,l):
+        if root==None:
+            return
+        l.append(root.val)
+        self.helper(root.left,l)
+        self.helper(root.right,l)
