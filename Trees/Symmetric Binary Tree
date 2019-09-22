@@ -1,0 +1,48 @@
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+
+Example :
+
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+The above binary tree is symmetric. 
+But the following is not:
+
+    1
+   / \
+  2   2
+   \   \
+   3    3
+Return 0 / 1 ( 0 for false, 1 for true ) for this problem
+
+
+
+
+
+class Solution:
+    # @param A : root node of tree
+    # @return an integer
+    def isSymmetric(self, A):
+        def isMirror(t1,t2):
+            if t1==None and t2==None:
+                return True
+            elif t1==None or t2==None:
+                return False
+            elif t1.val!=t2.val:
+                return False
+            elif isMirror(t1.left,t2.right) and isMirror(t1.right,t2.left):
+                return True
+            else:
+                return False
+        if A==None:
+            return 1
+        elif A.left==None and A.right==None:
+            return 1
+        elif A.left==None or A.right==None:
+            return 0
+        elif isMirror(A.left,A.right):
+            return 1
+        else:
+            return 0
