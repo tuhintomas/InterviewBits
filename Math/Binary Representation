@@ -1,0 +1,24 @@
+Given a number N >= 0, find its representation in binary.
+
+Example:
+
+if N = 6,
+
+binary form = 110
+
+
+
+
+
+class Solution:
+    # @param A : integer
+    # @return a strings
+    def findDigitsInBinary(self, A):
+        if A==0:
+            return "0"
+        b=""
+        while A>0:
+            bit=str(A%2)
+            b=bit+b
+            A=A//2
+        return b
